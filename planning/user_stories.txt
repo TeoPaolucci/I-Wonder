@@ -1,0 +1,67 @@
+As a non-registered/logged-in user:
+  -I can create a new account/login with an existing account
+    [] Have Passport functional
+  -I can view all questions
+    [] Index of inversly chronological (newest to oldest) questions. Probably the home page.
+  -I can view a single user's profile
+    [] Can click on a username and switch to a view with that user's profile.
+  -I can view a single user's questions
+    [] from a profile view, click on a button that switches the view to a list of questions (newest to oldest) made by that user.
+  -I can view a single question and it's answers
+    [] by clicking on the title of a question, switch to a view of a single question, more details, and all of the answers (newest to oldest).
+
+As a registered/logged in user:
+  -I can do everything a non-registered user can (aside from)
+    [] Finish the non-registered user checklist
+  -I can answer a single question
+    [] Only when logged in, show a form at the bottom of a single question view
+    [] When that form is submitted, add a new question
+  -I can "Trust" a user
+    [] Only when logged in, show a button at the bottom of a profile
+    [] When the button is clicked, add that profile's userID to the current user's "trusted" list
+  -I can logout of my accout
+    [] Have Passport functional
+  -I can view my profile
+    [] Once logged in, add a nav bar button "My Profile"
+    [] When clicked, displays the current user's profile
+  -I can update my profile
+    [] When viewing the profile of the logged in user, reveal a button at the bottom called "Update"
+    [] When the button is clicked, switch to a view with a form containing all of the current user's old profile information.
+    [] When the form is submitted, update the user's profile on the backend.
+    [] When the form is submitted, switch to a view of the profile with all of the new information.
+  -I can change my password
+    [] Have Passport functional
+    [] When viewing the profile of the logged in user, reveal a form at the bottom called "Change Pass"
+    [] When the form is submitted, change the password of the current user
+  -I can create a question with or without choices
+    [] Once logged in, add a nav bar button "New Question"
+    [] When clicked, switch to a view with a form for a question
+    [] When the form is submitted, creates a new question post and switches to a view of that question
+  -I can have a question have as many or as few choices as I like
+    [] In the form for creating a question, include a button that adds a single "choice" to the question
+    [] Up to 10 "choices" can be added, one at a time.
+    [] If there are no choices, creates the question without any.
+    [] If there are empty choices, they are not included.
+  -I can view all of my questions
+    [] Once logged in, add a nav bar button "My Questions"
+    [] When clicked, switch to a view with a list of all questions made by the current user (newest to oldest)
+  -I can view stats involving the choices offered in a question
+    [] When viewing a single question that the current user owns, display numeric/visual information regarding any choices provided in the question.
+  -I can view only the "trusted" answers of one of my questions
+    [] When viewing a single question that the current user owns, display only answers written by users in the current user's "trusted" list
+    [] If choices are provided, only display stats involving trusted answers
+  -I can update one of my questions
+    [] When viewing a single question that the current user owns, display a button called "Update"
+    [] When the button is clicked, switch to a view with a form containing all of the current question's old information.
+    [] When the form is submitted, update the question's contents on the backend.
+    [] When the form is submitted, switch to a view of the question with all of the new information.
+  -I can delete one of my questions
+    [] When viewing a single question that the current user owns, display a button called "Delete"
+    [] When clicked verify that the user wishes to delete the post in some way...
+      -switch to a view with "Are you sure?" and another button
+      -require password verification
+      -etc.
+
+REACH GOALS:
+  -Anything involving the choices machanic mentioned above
+  -Making the website look good
