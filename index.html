@@ -59,6 +59,9 @@
   </div>
 </nav>
 
+<!-- Website Body -->
+<div id="profile-view">
+</div>
 
   <!-- SCRIPTS -->
 <!-- JQuery -->
@@ -68,5 +71,36 @@
 <!-- Bootstrap -->
 <script src="js/bootstrap.js"></script>
 <!-- <script src="js/npm.js"></script> -->
+
+<!-- Handlebars Teplates -->
+<script id="profile-template" type="text/x-handlebars-template">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <img src="resources/fluffy_pony.png" class="img-rounded" alt="Thpbpbpbpbt!" width="200" height="200">
+      <h1>{{username}}</h1>
+    </div>
+    <div class="panel-body">
+      <div>Name: {{first_name}} {{last_name}}</div>
+      <div>Birthday: {{dob}}</div>
+      <div>Email: <a href="mailto:{{email}}">{{email}}</a></div>
+      <a href="#/questions/user/{{userID}}">
+        <input type="button" class="btn btn-info" value="My Questions">
+      </a>
+      <br>
+      <div id="logged-in-trust">
+        <div id="trust-add">
+          <a href="#/profile/add/{{userID}}">
+            <input type="button" class="btn btn-success" value="I trust you!">
+          </a>
+        </div>
+        <div id="trust-remove">
+          <a href="#/profile/remove/{{userID}}">
+            <input type="button" class="btn btn-danger" value="I don't trust you.">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
 </body>
 </html>
