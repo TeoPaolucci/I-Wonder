@@ -60,7 +60,33 @@
 </nav>
 
 <!-- Website Body -->
-<span>Test Text</span>
+<div id="profile-view">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <!-- Profile image maybe... -->
+      <img src="resources/fluffy_pony.img" class="img-rounded" alt="Thpbpbpbpbt!" width="200" height="200">
+      <!-- Username, large and prominent, next to image -->
+      <h1>TacoPuff&lt;3</h1>
+    </div>
+    <div class="panel-body">
+      <!-- First and Last names -->
+      <div>Name: Fluffle Puff</div>
+      <!-- Date of Birth -->
+      <div>DoB: Jan, 11th 2013</div>
+      <!-- email, perhaps an email link? -->
+      <div>Email: <a href="mailto:tacopuff@equestria.net">tacopuff@equestria.net</a></div>
+      <!-- button that leads to this user's questions -->
+      <input type="button" class="btn btn-info" value="My Questions">
+      <!-- Only logged in featues -->
+      <div id="logged-in-trust">
+        <br>
+        <!-- Buttons that add/remove a user to trusted list -->
+        <input type="button" id="trust-add" class="btn btn-success" value="I trust you!">
+        <input type="button" id="trust-remove" class="btn btn-danger" value="I don't trust you.">
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- SCRIPTS -->
 <!-- JQuery -->
