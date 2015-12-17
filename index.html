@@ -63,7 +63,7 @@
 <div id="profile-view">
 </div>
 
-<div id="uptade-profile-view">
+<div id="update-profile-view">
   <form id="update-profile" class="form-horizontal" role="form">
     <!-- Name group -->
     <div class="form-group">
@@ -109,7 +109,7 @@
   </form>
 </div>
 
-<!--
+
 <div id="new-question-view">
   <form id="new-question">
     <input type="text" class="form-control" name="title" placeholder="Title">
@@ -117,7 +117,7 @@
     <input type="submit" class="btn btn-info" id="quesiton-submit" value="Create Question">
   </form>
 </div>
- -->
+
 
 <div id="all-qs-view">
 </div>
@@ -125,7 +125,7 @@
 <div id-"one-question-view">
 </div>
 
-<!--
+
 <div id="new-answer-view">
   <form id="new-answer">
     <input type="text" class="form-control" name="title" placeholder="Title">
@@ -133,16 +133,19 @@
     <input type="submit" class="btn btn-info" id="answer-submit" value="Answer">
   </form>
 </div>
- -->
+
 
   <!-- SCRIPTS -->
 <!-- JQuery -->
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 
 <!-- Bootstrap -->
-<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
 <!-- <script src="js/npm.js"></script> -->
+
+<!-- Handlebars -->
+<script src="js/handlebars.js" type="text/javascript" charset="utf-8"></script>
 
 <!-- Handlebars Teplates -->
 <script id="profile-template" type="text/x-handlebars-template">
@@ -224,6 +227,11 @@
   </article>
   {{/each}}
 </script>
+
+<!-- Website JS files -->
+<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="js/api.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="js/handlers.js" type="text/javascript" charset="utf-8"></script>
 
 </body>
 </html>
