@@ -33,16 +33,16 @@
           <ul class="dropdown-menu">
             <li>
               <form id="login-form" role="form" class="nav-form">
-                <input type="text" name="username" class="form-control" value="Username">
-                <input type="password" name="password" class="form-control" value="Password">
+                <input type="text" name="username" class="form-control" placeholder="Username">
+                <input type="password" name="password" class="form-control" placeholder="Password">
                 <input type="submit" id="login-submit" class="btn btn-info" value="Login">
               </form>
             </li>
             <li role="separator" class="divider"></li>
             <li>
               <form id="register-form" role="form" class="nav-form">
-                <input type="text" name="username" class="form-control" value="Username">
-                <input type="password" name="password" class="form-control" value="Password">
+                <input type="text" name="username" class="form-control" placeholder="Username">
+                <input type="password" name="password" class="form-control" placeholder="Password">
                 <input type="submit" id="register-submit" class="btn btn-info" value="Register">
               </form>
             </li>
@@ -63,20 +63,89 @@
 <div id="profile-view">
 </div>
 
+<div id="update-profile-view">
+  <form id="update-profile" class="form-horizontal" role="form">
+    <!-- Name group -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="full-name">Name:</label>
+      <div class="col-sm-3" id="full-name">
+        <input type="text" name="first_name" class="form-control" placeholder="First">
+      </div>
+      <div class="col-sm-3">
+        <input type="text" name="last_name" class="form-control" placeholder="Last">
+      </div>
+    </div>
+
+    <!-- B-Day group -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="birthday">Date of Birth:</label>
+      <div class="col-sm-3" id="birthday">
+        <input type="text" name="dob" class="form-control" placeholder="YYYY-MM-DD">
+      </div>
+    </div>
+
+    <!-- E-mail group -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-sm-6" id="email">
+        <input type="email" class="form-control" name="email" placeholder="sample@mail.com">
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-info">Update Profile</button>
+      </div>
+    </div>
+  </form>
+  <hr>
+  <form class="form-horizontal" role="form" id="update-password">
+    <div class="col-sm-2">
+      <button type="submit" class="btn btn-warning">Change Password</button>
+    </div>
+    <div class="col-sm-6">
+      <input type="pssword" class="form-control" id="password" placeholder="New Password">
+    </div>
+  </form>
+</div>
+
+
+<div id="new-question-view">
+  <form id="new-question">
+    <input type="text" class="form-control" name="title" placeholder="Title">
+    <textarea class="form-control" name="description" rows="5" placeholder="Details about your question..."></textarea>
+    <input type="submit" class="btn btn-info" id="quesiton-submit" value="Create Question">
+  </form>
+</div>
+
+
 <div id="all-qs-view">
 </div>
 
 <div id-"one-question-view">
 </div>
 
+
+<div id="new-answer-view">
+  <form id="new-answer">
+    <input type="text" class="form-control" name="title" placeholder="Title">
+    <textarea class="form-control" name="description" rows="3" placeholder="Details about your answer..."></textarea>
+    <input type="submit" class="btn btn-info" id="answer-submit" value="Answer">
+  </form>
+</div>
+
+
   <!-- SCRIPTS -->
 <!-- JQuery -->
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 
 <!-- Bootstrap -->
-<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
 <!-- <script src="js/npm.js"></script> -->
+
+<!-- Handlebars -->
+<script src="js/handlebars.js" type="text/javascript" charset="utf-8"></script>
 
 <!-- Handlebars Teplates -->
 <script id="profile-template" type="text/x-handlebars-template">
@@ -158,6 +227,11 @@
   </article>
   {{/each}}
 </script>
+
+<!-- Website JS files -->
+<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="js/api.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="js/handlers.js" type="text/javascript" charset="utf-8"></script>
 
 </body>
 </html>
