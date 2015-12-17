@@ -67,96 +67,6 @@
 </div>
 
 <div id-"one-question-view">
-  <!-- Question with title/username embiggened -->
-  <article class="row">
-    <h1>
-      <a href="#/question/{{_id}}">Question {{title}}</a>
-      <br>
-      <small>
-        Asked by: <a href="#/profile/{{userID}}">{{username}}</a>
-      </small>
-    </h1>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        A further {{description}} of the question asked.
-      </div>
-    </div>
-  </article>
-  <!-- First Answer -->
-  <article class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>
-          Answer from: <a href="#/profile/{{userID}}">{{username}}</a>
-        </h4>
-      </div>
-      <div class="panel-body">
-        A further {{description}} of their answer.
-      </div>
-    </div>
-  </article>
-  <!-- Answer copies for visual testing -->
-  <article class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>
-          Answer from: <a href="#/profile/{{userID}}">{{username}}</a>
-        </h4>
-      </div>
-      <div class="panel-body">
-        A further {{description}} of their answer.
-      </div>
-    </div>
-  </article>
-  <article class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>
-          Answer from: <a href="#/profile/{{userID}}">{{username}}</a>
-        </h4>
-      </div>
-      <div class="panel-body">
-        A further {{description}} of their answer.
-      </div>
-    </div>
-  </article>
-  <article class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>
-          Answer from: <a href="#/profile/{{userID}}">{{username}}</a>
-        </h4>
-      </div>
-      <div class="panel-body">
-        A further {{description}} of their answer.
-      </div>
-    </div>
-  </article>
-  <article class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>
-          Answer from: <a href="#/profile/{{userID}}">{{username}}</a>
-        </h4>
-      </div>
-      <div class="panel-body">
-        A further {{description}} of their answer.
-      </div>
-    </div>
-  </article>
-  <article class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>
-          Answer from: <a href="#/profile/{{userID}}">{{username}}</a>
-        </h4>
-      </div>
-      <div class="panel-body">
-        A further {{description}} of their answer.
-      </div>
-    </div>
-  </article>
-  <!-- end answer copies -->
 </div>
 
   <!-- SCRIPTS -->
@@ -199,7 +109,8 @@
   </div>
 </script>
 
-<script id="question-template" type="text/x-handlebars-template">
+<script id="multi-question-template" type="text/x-handlebars-template">
+  {{#each questions}}
   <article class="row">
     <h3>
       <a href="#/question/{{_id}}">{{title}}</a>
@@ -214,6 +125,38 @@
       </div>
     </div>
   </article>
+  {{/each}}
+</script>
+
+<script id="one-question-template" type="text/x-handlebars-template">
+  <article class="row">
+    <h1>
+      <a href="#/question/{{question._id}}">{{question.title}}</a>
+      <br>
+      <small>
+        Asked by: <a href="#/profile/{{question.userID}}">{{question.username}}</a>
+      </small>
+    </h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {{question.description}}
+      </div>
+    </div>
+  </article>
+  {{#each answers}}
+  <article class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+          Answer from: <a href="#/profile/{{userID}}">{{username}}</a>
+        </h4>
+      </div>
+      <div class="panel-body">
+        A further {{description}} of their answer.
+      </div>
+    </div>
+  </article>
+  {{/each}}
 </script>
 
 </body>
