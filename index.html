@@ -60,6 +60,9 @@
 </nav>
 
 <!-- Website Body -->
+<div id="error-box">
+</div>
+
 <div id="profile-view">
 </div>
 
@@ -226,6 +229,17 @@
     </div>
   </article>
   {{/each}}
+</script>
+
+<script id="error-template" type="text/x-handlebars-template">
+  <div class="alert alert-danger fade in">
+    <strong>Error!</strong><br>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    So... Something messed up. Don&#39;t worry though, it&#39;s not your fault.<br>
+    If you were really curious though, this might be the problem:<br>
+    Status: {{status}}<br>
+    Error: {{error}}
+  </div>
 </script>
 
 <!-- Website JS files -->

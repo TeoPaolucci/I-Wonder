@@ -4,6 +4,7 @@
 var profileTemplate = Handlebars.compile($('#profile-template').html());
 var multiQuestionTemplate = Handlebars.compile($('#multi-question-template').html());
 var oneQuestionTemplate = Handlebars.compile($('#one-question-template').html());
+var errorTemplate = Handlebars.compile($('#error-template').html());
 
 // form2object: Takes the contents of a form and converts it into an object
 // where each key is the name of each input in the form
