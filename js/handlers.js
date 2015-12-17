@@ -8,7 +8,7 @@ $(document).ready(function(){
     }
   });
 
-  // hide all the things and set the #url to #
+  // hide all the things and set the #url to '#''
   hideAllViews();
   $('#logged-in-nav').hide();
   location.hash = '#';
@@ -65,7 +65,7 @@ $(document).ready(function(){
   $('#register-form').on('submit', function(e) {
     e.preventDefault();
     var credentials = form2object(event.target);
-    api.signup(credentials, function (err, data) {
+    api.register(credentials, function (err, data) {
       if(err) {
         console.error(err);
         var html = errorTemplate(err);
@@ -78,11 +78,18 @@ $(document).ready(function(){
           var html = errorTemplate(err);
           $('#error-box').html(html);
           return;
-        } else if (data.id !== "Nobody") {
-          $('#user-id').val(data.id);
-          $('#logged-in-nav').show();
-          location.hash = '#home';
         }
+        api.getUser(function (err, data){
+          if(err) {
+            console.error(err);
+            var html = errorTemplate(err);
+            $('#error-box').html(html);
+          } else if (data.id !== "Nobody") {
+            $('#logged-in-nav').show();
+            $('#user-id').val(data.id);
+          }
+          api.getAllQuestions(allQsCallback);
+        });
         api.createUserProfile({}, function (err, data) {
           if(err) {
             console.error(err);
