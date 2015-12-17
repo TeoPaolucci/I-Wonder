@@ -43,6 +43,14 @@ var api = {
       data: JSON.stringify(credentials)
     }, callback);
   },
+
+  getUser: function getUser(callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.backend,
+      dataType: 'json'
+    }, callback);
+  },
   // PROFILE
   createUserProfile: function createUserProfile(content, callback) {
     this.ajax({
@@ -51,7 +59,7 @@ var api = {
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(content),
       dataType: 'json'
-    }, callback)
+    }, callback);
   },
 
   getUserProfile: function getUserProfile(callback) {
