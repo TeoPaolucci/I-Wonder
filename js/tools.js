@@ -46,6 +46,7 @@ var allQsCallback = function (err, data) {
   if ($('#user-id').val()) {
     $('#new-question-view').show();
   }
+  location.hash = '#';
 };
 
 var oneQuestionCallback = function (err, data) {

@@ -11,6 +11,8 @@ $(document).ready(function(){
   // hide all the things and set the #url to '#''
   hideAllViews();
   $('#logged-in-nav').hide();
+  $('#logout-div').hide();
+  $('#logout-seperator').hide();
   location.hash = '#';
 
   // check if there's already a session
@@ -21,6 +23,8 @@ $(document).ready(function(){
       $('#error-box').html(html);
     } else if (data.id !== "Nobody") {
       $('#logged-in-nav').show();
+      $('#logout-div').show();
+      $('#logout-seperator').show();
       $('#user-id').val(data.id);
     }
     api.getAllQuestions(allQsCallback);
@@ -55,9 +59,11 @@ $(document).ready(function(){
           $('#error-box').html(html);
         } else if (data.id !== "Nobody") {
           $('#logged-in-nav').show();
+          $('#logout-div').show();
+          $('#logout-seperator').show();
           $('#user-id').val(data.id);
         }
-        api.getAllQuestions(allQsCallback);
+        location.hash = '#home';
       });
     });
   });
@@ -86,9 +92,11 @@ $(document).ready(function(){
             $('#error-box').html(html);
           } else if (data.id !== "Nobody") {
             $('#logged-in-nav').show();
+            $('#logout-div').show();
+            $('#logout-seperator').show();
             $('#user-id').val(data.id);
           }
-          api.getAllQuestions(allQsCallback);
+          location.hash = '#home';
         });
         api.createUserProfile({}, function (err, data) {
           if(err) {
@@ -113,6 +121,22 @@ $(document).ready(function(){
     var content = form2object(event.target);
     var questionID = $('#question-id').val();
     api.postAnswer(questionID, content, oneQuestionCallback);
-  })
+  });
+
+  $('#logout-button').on('click', function() {
+    api.logout(function (err, data) {
+      if(err) {
+        console.error(err);
+        var html = errorTemplate(err);
+        $('#error-box').html(html);
+        return;
+      }
+      $('#user-id').val('');
+      $('#logged-in-nav').hide();
+      $('#logout-div').hide();
+      $('#logout-seperator').hide();
+      location.hash = '#home';
+    });
+  });
 
 });
