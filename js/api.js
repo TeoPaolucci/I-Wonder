@@ -23,8 +23,7 @@ var api = {
       method: 'POST',
       url: this.backend + '/login',
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(credentials),
-      dataType: 'json'
+      data: JSON.stringify(credentials)
     }, callback);
   },
 

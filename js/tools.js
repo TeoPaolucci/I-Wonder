@@ -31,3 +31,37 @@ var hideAllViews = function() {
   $('#one-question-view').hide();
   $('#new-answer-view').hide();
 };
+
+// callbacks specific to certain views
+var allQsCallback = function (err, data) {
+  if(err) {
+    var alert = errorTemplate(err);
+    $('#error-box').html(alert);
+    console.error(err);
+    return;
+  }
+  var html = multiQuestionTemplate(data);
+  hideAllViews();
+  $('#all-qs-view').html(html).show();
+  if ($('#user-id').val()) {
+    $('#new-question-view').show();
+  }
+};
+
+var oneQuestionCallback = function (err, data) {
+  if(err) {
+    var alert = errorTemplate(err);
+    $('#error-box').html(alert);
+    console.error(err);
+    return;
+  }
+  var html = oneQuestionTemplate(data);
+  hideAllViews();
+  $('#one-question-view').html(html).show();
+  $('#question-id').val(data.question._id);
+  if ($('#user-id').val()) {
+    $('#new-answer-view').show();
+  }
+};
+
+
