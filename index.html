@@ -63,6 +63,9 @@
 <div id="profile-view">
 </div>
 
+<div id="all-qs-view">
+</div>
+
   <!-- SCRIPTS -->
 <!-- JQuery -->
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -89,12 +92,12 @@
       <br>
       <div id="logged-in-trust">
         <div id="trust-add">
-          <a href="#/profile/add/{{userID}}">
+          <a href="#/trust/add/{{userID}}">
             <input type="button" class="btn btn-success" value="I trust you!">
           </a>
         </div>
         <div id="trust-remove">
-          <a href="#/profile/remove/{{userID}}">
+          <a href="#/trust/remove/{{userID}}">
             <input type="button" class="btn btn-danger" value="I don't trust you.">
           </a>
         </div>
@@ -102,5 +105,23 @@
     </div>
   </div>
 </script>
+
+<script id="question-template" type="text/x-handlebars-template">
+  <article class="row">
+    <h3>
+      <a href="#/question/{{_id}}">{{title}}</a>
+      <br>
+      <small>
+        Asked by: <a href="#/profile/{{userID}}">{{username}}</a>
+      </small>
+    </h3>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {{description}}
+      </div>
+    </div>
+  </article>
+</script>
+
 </body>
 </html>
