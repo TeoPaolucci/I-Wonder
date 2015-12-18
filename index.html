@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>I Wonder?</title>
+
+    <!-- STYLESHEETS -->
+  <!-- Bootsrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- Navigation bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#home">I Wonder?</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- Login / Register Dropdown -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login/Register <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <form id="login-form" role="form" class="nav-form">
+                <input type="text" name="username" class="form-control" placeholder="Username">
+                <input type="password" name="password" class="form-control" placeholder="Password">
+                <input type="submit" id="login-submit" class="btn btn-info" value="Login">
+              </form>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <form id="register-form" role="form" class="nav-form">
+                <input type="text" name="username" class="form-control" placeholder="Username">
+                <input type="password" name="password" class="form-control" placeholder="Password">
+                <input type="submit" id="register-submit" class="btn btn-info" value="Register">
+              </form>
+            </li>
+            <li role="separator" class="divider" id="logout-seperator"></li>
+            <li class="nav-form" id="logout-div">
+              <input type="button" id="logout-button" class="btn btn-warning" value="Logout">
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="logged-in-nav" class="nav navbar-nav">
+        <!-- Hidden until logged in -->
+        <li><a href="#myProfile">My Profile</a></li>
+        <li><a href="#myQuestions">My Questions</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Website Body -->
+<div id="error-box">
+</div>
+
+<div id="profile-view">
+</div>
+
+<div id="update-profile-view">
+  <form id="update-profile" class="form-horizontal" role="form">
+    <!-- Name group -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="full-name">Name:</label>
+      <div class="col-sm-3" id="full-name">
+        <input type="text" name="first_name" class="form-control" placeholder="First">
+      </div>
+      <div class="col-sm-3">
+        <input type="text" name="last_name" class="form-control" placeholder="Last">
+      </div>
+    </div>
+
+    <!-- B-Day group -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="birthday">Date of Birth:</label>
+      <div class="col-sm-3" id="birthday">
+        <input type="text" name="dob" class="form-control" placeholder="YYYY-MM-DD">
+      </div>
+    </div>
+
+    <!-- E-mail group -->
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-sm-6" id="email">
+        <input type="email" class="form-control" name="email" placeholder="sample@mail.com">
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-info">Update Profile</button>
+      </div>
+    </div>
+  </form>
+  <hr>
+  <form class="form-horizontal" role="form" id="update-password">
+    <div class="col-sm-2">
+      <button type="submit" class="btn btn-warning">Change Password</button>
+    </div>
+    <div class="col-sm-6">
+      <input type="pssword" class="form-control" id="password" placeholder="New Password">
+    </div>
+  </form>
+</div>
+
+
+<div id="new-question-view">
+  <form id="new-question">
+    <input type="text" class="form-control" name="title" placeholder="Ask a question!">
+    <textarea class="form-control" name="description" rows="5" placeholder="Details about your question..."></textarea>
+    <input type="submit" class="btn btn-info" id="quesiton-submit" value="Create Question">
+  </form>
+</div>
+
+
+<div id="all-qs-view">
+</div>
+
+<div id="one-question-view">
+</div>
+
+<div id="question-edit-view">
+  <form id="edit-question">
+    <input type="text" id="question-title" name="title" class="form-control">
+    <textarea id="question-description" name="description" class="form-control" rows="3"></textarea>
+    <input type="submit" id="edit-question-submit" class="btn btn-info" value="Update Question">
+  </form>
+  <br>
+  <input type="button" id="delete-question" class="btn btn-danger" value="Delete Question">
+</div>
+
+<div id="delete-warning-view" class="alert alert-danger fade in">
+  <h3><strong>Warning!</strong></h3>
+  When you delete this question, it will delete all of the answers associated with it!<br>
+  <strong>This can not be undone.</strong><br>
+  <input type="button" id="confirm-delete" class="btn btn-danger" value="Delete Question and Answers">
+</div>
+
+<div id="new-answer-view">
+  <form id="new-answer">
+    <input type="text" class="form-control" name="title" placeholder="Leave an answer!">
+    <textarea class="form-control" name="description" rows="3" placeholder="Details about your answer..."></textarea>
+    <input type="submit" class="btn btn-info" id="answer-submit" value="Answer">
+  </form>
+</div>
+
+
+<!-- Hidden vars -->
+<input type="hidden" id="user-id">
+<input type="hidden" id="question-id">
+
+  <!-- SCRIPTS -->
+<!-- JQuery -->
+<script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Bootstrap -->
+<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="js/npm.js"></script> -->
+
+<!-- Handlebars -->
+<script src="js/handlebars.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Handlebars Teplates -->
+<script id="profile-template" type="text/x-handlebars-template">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <img src="resources/fluffy_pony.png" class="img-rounded" alt="Thpbpbpbpbt!" width="200" height="200">
+      <h1>{{username}}</h1>
+    </div>
+    <div class="panel-body">
+      <div>Name: {{first_name}} {{last_name}}</div>
+      <div>Birthday: {{dob}}</div>
+      <div>Email: <a href="mailto:{{email}}">{{email}}</a></div>
+      <a href="#/questions/user/{{userID}}">
+        <input type="button" class="btn btn-info" value="My Questions">
+      </a>
+      <br>
+      <div id="logged-in-trust">
+        <div id="trust-add">
+          <a href="#/trust/add/{{userID}}">
+            <input type="button" class="btn btn-success" value="I trust you!">
+          </a>
+        </div>
+        <div id="trust-remove">
+          <a href="#/trust/remove/{{userID}}">
+            <input type="button" class="btn btn-danger" value="I don't trust you.">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="multi-question-template" type="text/x-handlebars-template">
+  {{#each questions}}
+  <article class="row">
+    <h3>
+      <a href="#/question/{{_id}}">{{title}}</a>
+      <br>
+      <small>
+        Asked by: <a href="#/profile/{{userID}}">{{username}}</a>
+      </small>
+    </h3>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {{description}}
+      </div>
+    </div>
+  </article>
+  {{/each}}
+</script>
+
+<script id="one-question-template" type="text/x-handlebars-template">
+  <article class="row">
+    <h1>
+      <a href="#/question/{{question._id}}">{{question.title}}</a>
+      <br>
+      <small>
+        Asked by: <a href="#/profile/{{question.userID}}">{{question.username}}</a>
+      </small>
+    </h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {{question.description}}
+      </div>
+    </div>
+  </article>
+  {{#each answers}}
+  <article class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>
+        {{title}}
+          <small>Answer from: <a href="#/profile/{{userID}}">{{username}}</a></small>
+        </h4>
+      </div>
+      <div class="panel-body">
+        {{description}}
+      </div>
+    </div>
+  </article>
+  {{/each}}
+</script>
+
+<script id="error-template" type="text/x-handlebars-template">
+  <div class="alert alert-danger fade in">
+    <strong>Error!</strong><br>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    So... Something messed up. Don&#39;t worry though, it&#39;s not your fault.<br>
+    If you were really curious though, this might be the problem:<br>
+    Status: {{status}}<br>
+    Error: {{error}}
+  </div>
+</script>
+
+<!-- Website JS files -->
+<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/api.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/handlers.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
