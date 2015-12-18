@@ -57,7 +57,6 @@
         <!-- Hidden until logged in -->
         <li><a href="#myProfile">My Profile</a></li>
         <li><a href="#myQuestions">My Questions</a></li>
-        <li><a href="#newQuestion">New Question</a></li>
       </ul>
     </div>
   </div>
@@ -151,7 +150,6 @@
 
 <div id="new-answer-view">
   <form id="new-answer">
-    <input type="hidden" id="question-id">
     <input type="text" class="form-control" name="title" placeholder="Title">
     <textarea class="form-control" name="description" rows="3" placeholder="Details about your answer..."></textarea>
     <input type="submit" class="btn btn-info" id="answer-submit" value="Answer">
@@ -161,6 +159,7 @@
 
 <!-- Hidden vars -->
 <input type="hidden" id="user-id">
+<input type="hidden" id="question-id">
 
   <!-- SCRIPTS -->
 <!-- JQuery -->

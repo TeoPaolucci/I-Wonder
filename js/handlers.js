@@ -151,7 +151,7 @@ $(document).ready(function(){
   $('#edit-question').on('submit', function(e) {
     e.preventDefault();
     var content = form2object(event.target);
-    var questionID = $('#questionID').val();
+    var questionID = $('#question-id').val();
     api.updateQuestion(questionID, content, oneQuestionCallback);
   });
 
