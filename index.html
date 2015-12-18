@@ -132,6 +132,22 @@
 <div id="one-question-view">
 </div>
 
+<div id="question-edit-view">
+  <form id="edit-question">
+    <input type="text" id="question-title" name="title" class="form-control">
+    <textarea id="question-description" name="description" class="form-control" rows="3"></textarea>
+    <input type="submit" id="edit-question-submit" class="btn btn-info" value="Update Question">
+  </form>
+  <br>
+  <input type="button" id="delete-question" class="btn btn-danger" value="Delete Question">
+</div>
+
+<div id="delete-warning-view" class="alert alert-danger fade in">
+  <h3><strong>Warning!</strong></h3>
+  When you delete this question, it will delete all of the answers associated with it!<br>
+  <strong>This can not be undone.</strong><br>
+  <input type="button" id="confirm-delete" class="btn btn-danger" value="Delete Question and Answers">
+</div>
 
 <div id="new-answer-view">
   <form id="new-answer">

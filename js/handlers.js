@@ -38,6 +38,15 @@ $(document).ready(function(){
       hideAllViews();
       api.getAllQuestions(allQsCallback);
     }
+
+    // else ifs for nav bar stuff
+
+    else {
+      var path = location.hash.split('/');
+      if (path[1] === 'question') {
+        api.getQuestionById(path[2], oneQuestionCallback);
+      }
+    }
   };
 
   window.addEventListener('hashchange', locationHashChanged);
@@ -135,6 +144,31 @@ $(document).ready(function(){
       $('#logged-in-nav').hide();
       $('#logout-div').hide();
       $('#logout-seperator').hide();
+      location.hash = '#home';
+    });
+  });
+
+  $('#edit-question').on('submit', function(e) {
+    e.preventDefault();
+    var content = form2object(event.target);
+    var questionID = $('#questionID').val();
+    api.updateQuestion(questionID, content, oneQuestionCallback);
+  });
+
+  $('#delete-question').on('click', function() {
+    $('#question-edit-view').hide();
+    $('#delete-warning-view').show();
+  });
+
+  $('#confirm-delete').on('click', function() {
+    var questionID = $('#question-id').val();
+    api.deleteQuestion(questionID, function (err, data) {
+      if(err) {
+        console.error(err);
+        var html = errorTemplate(err);
+        $('#error-box').html(html);
+        return;
+      }
       location.hash = '#home';
     });
   });

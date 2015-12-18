@@ -29,6 +29,8 @@ var hideAllViews = function() {
   $('#new-question-view').hide();
   $('#all-qs-view').hide();
   $('#one-question-view').hide();
+  $('#question-edit-view').hide();
+  $('#delete-warning-view').hide();
   $('#new-answer-view').hide();
 };
 
@@ -60,9 +62,14 @@ var oneQuestionCallback = function (err, data) {
   hideAllViews();
   $('#one-question-view').html(html).show();
   $('#question-id').val(data.question._id);
-  if ($('#user-id').val()) {
+  if ($('#user-id').val() === data.question.userID) {
+    $('#question-title').val(data.question.title);
+    $('#question-description').val(data.question.description);
+    $('#question-edit-view').show();
+  } else if ($('#user-id').val()) {
     $('#new-answer-view').show();
   }
+  location.hash = '#';
 };
 
 
