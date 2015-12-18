@@ -4,6 +4,7 @@
 var profileTemplate = Handlebars.compile($('#profile-template').html());
 var multiQuestionTemplate = Handlebars.compile($('#multi-question-template').html());
 var oneQuestionTemplate = Handlebars.compile($('#one-question-template').html());
+var errorTemplate = Handlebars.compile($('#error-template').html());
 
 // form2object: Takes the contents of a form and converts it into an object
 // where each key is the name of each input in the form
@@ -28,5 +29,47 @@ var hideAllViews = function() {
   $('#new-question-view').hide();
   $('#all-qs-view').hide();
   $('#one-question-view').hide();
+  $('#question-edit-view').hide();
+  $('#delete-warning-view').hide();
   $('#new-answer-view').hide();
 };
+
+// callbacks specific to certain views
+var allQsCallback = function (err, data) {
+  if(err) {
+    var alert = errorTemplate(err);
+    $('#error-box').html(alert);
+    console.error(err);
+    return;
+  }
+  var html = multiQuestionTemplate(data);
+  hideAllViews();
+  $('#all-qs-view').html(html).show();
+  if ($('#user-id').val()) {
+    $('#new-question-view').show();
+  }
+  location.hash = '#';
+};
+
+var oneQuestionCallback = function (err, data) {
+  if(err) {
+    var alert = errorTemplate(err);
+    $('#error-box').html(alert);
+    console.error(err);
+    return;
+  }
+  var html = oneQuestionTemplate(data);
+  hideAllViews();
+  $('#one-question-view').html(html).show();
+  $('#question-id').val(data.question._id);
+  if ($('#user-id').val() === data.question.userID) {
+    $('#question-title').val(data.question.title);
+    $('#question-description').val(data.question.description);
+    $('#question-edit-view').show();
+  } else if ($('#user-id').val()) {
+    $('#new-answer-view').show();
+  }
+  location.hash = '#';
+};
+
+

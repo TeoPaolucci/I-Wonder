@@ -46,6 +46,10 @@
                 <input type="submit" id="register-submit" class="btn btn-info" value="Register">
               </form>
             </li>
+            <li role="separator" class="divider" id="logout-seperator"></li>
+            <li class="nav-form" id="logout-div">
+              <input type="button" id="logout-button" class="btn btn-warning" value="Logout">
+            </li>
           </ul>
         </li>
       </ul>
@@ -53,13 +57,15 @@
         <!-- Hidden until logged in -->
         <li><a href="#myProfile">My Profile</a></li>
         <li><a href="#myQuestions">My Questions</a></li>
-        <li><a href="#newQuestion">New Question</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <!-- Website Body -->
+<div id="error-box">
+</div>
+
 <div id="profile-view">
 </div>
 
@@ -122,9 +128,25 @@
 <div id="all-qs-view">
 </div>
 
-<div id-"one-question-view">
+<div id="one-question-view">
 </div>
 
+<div id="question-edit-view">
+  <form id="edit-question">
+    <input type="text" id="question-title" name="title" class="form-control">
+    <textarea id="question-description" name="description" class="form-control" rows="3"></textarea>
+    <input type="submit" id="edit-question-submit" class="btn btn-info" value="Update Question">
+  </form>
+  <br>
+  <input type="button" id="delete-question" class="btn btn-danger" value="Delete Question">
+</div>
+
+<div id="delete-warning-view" class="alert alert-danger fade in">
+  <h3><strong>Warning!</strong></h3>
+  When you delete this question, it will delete all of the answers associated with it!<br>
+  <strong>This can not be undone.</strong><br>
+  <input type="button" id="confirm-delete" class="btn btn-danger" value="Delete Question and Answers">
+</div>
 
 <div id="new-answer-view">
   <form id="new-answer">
@@ -134,6 +156,10 @@
   </form>
 </div>
 
+
+<!-- Hidden vars -->
+<input type="hidden" id="user-id">
+<input type="hidden" id="question-id">
 
   <!-- SCRIPTS -->
 <!-- JQuery -->
@@ -221,16 +247,27 @@
         </h4>
       </div>
       <div class="panel-body">
-        A further {{description}} of their answer.
+        {{description}}
       </div>
     </div>
   </article>
   {{/each}}
 </script>
 
+<script id="error-template" type="text/x-handlebars-template">
+  <div class="alert alert-danger fade in">
+    <strong>Error!</strong><br>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    So... Something messed up. Don&#39;t worry though, it&#39;s not your fault.<br>
+    If you were really curious though, this might be the problem:<br>
+    Status: {{status}}<br>
+    Error: {{error}}
+  </div>
+</script>
+
 <!-- Website JS files -->
 <script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
-<!-- <script src="js/api.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="js/api.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/handlers.js" type="text/javascript" charset="utf-8"></script>
 
 </body>
