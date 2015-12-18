@@ -118,7 +118,7 @@
 
 <div id="new-question-view">
   <form id="new-question">
-    <input type="text" class="form-control" name="title" placeholder="Title">
+    <input type="text" class="form-control" name="title" placeholder="Ask a question!">
     <textarea class="form-control" name="description" rows="5" placeholder="Details about your question..."></textarea>
     <input type="submit" class="btn btn-info" id="quesiton-submit" value="Create Question">
   </form>
@@ -150,7 +150,7 @@
 
 <div id="new-answer-view">
   <form id="new-answer">
-    <input type="text" class="form-control" name="title" placeholder="Title">
+    <input type="text" class="form-control" name="title" placeholder="Leave an answer!">
     <textarea class="form-control" name="description" rows="3" placeholder="Details about your answer..."></textarea>
     <input type="submit" class="btn btn-info" id="answer-submit" value="Answer">
   </form>
@@ -243,7 +243,8 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4>
-          Answer from: <a href="#/profile/{{userID}}">{{username}}</a>
+        {{title}}
+          <small>Answer from: <a href="#/profile/{{userID}}">{{username}}</a></small>
         </h4>
       </div>
       <div class="panel-body">
