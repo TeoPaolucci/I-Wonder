@@ -1,5 +1,5 @@
 var api = {
-  backend: 'http://localhost:3000',
+  backend: 'https://warm-reef-11062.herokuapp.com/',
 
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
